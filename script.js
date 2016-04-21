@@ -28,9 +28,9 @@ module.exports = new Script({
     askPurpose: {
         prompt: (bot) => bot.say('What\'re you looking to purchase?'),
         receive: (bot, message) => {
-            const name = message.text;
-            return bot.setProp('name', name)
-                .then(() => bot.say(`Okay! I'm sending you a link to look for "${name}" right away. Hang on!`))
+            const purpose = message.text;
+            return bot.setProp('purpose', purpose)
+                .then(() => bot.say(`Okay! I'm sending you a link to look for "${purpose}" right away. Hang on!`))
                 .then(() => 'finish');
         }
     },
