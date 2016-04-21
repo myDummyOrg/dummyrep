@@ -21,6 +21,16 @@ module.exports = new Script({
             const name = message.text;
             return bot.setProp('name', name)
                 .then(() => bot.say(`Great! I'll call you ${name}`))
+                .then(() => 'askPurpose');
+        }
+    },
+    
+    askPurpose: {
+        prompt: (bot) => bot.say('What\'re you looking to purchase?'),
+        receive: (bot, message) => {
+            const name = message.text;
+            return bot.setProp('name', name)
+                .then(() => bot.say(`Okay! I'm sending you a link to look for "${name}" right away. Hang on!`))
                 .then(() => 'finish');
         }
     },
